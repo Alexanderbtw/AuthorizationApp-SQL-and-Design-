@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>AuthorizationApp__SQL_and_Design_</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="ShowMeTheXAML" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AuthorizationModelLib\AuthorizationModelLib.csproj" />
+    <ProjectReference Include="..\CustomDesignWinLib\CustomDesignWinLib.csproj" />
+    <ProjectReference Include="..\PostgresConnectionLib\PostgresConnectionLib.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,74 @@
+﻿<Window x:Class="AuthorizationApp__SQL_and_Design_.PersonalAreaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AuthorizationApp__SQL_and_Design_"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource MaterialDesignDarkBackground}"
+        FontFamily="Montserrat"
+        x:Name="PersArea"
+        WindowState="Maximized"
+        Title="Personal Area" Height="600" Width="800">
+    <Grid Background="#FF1C1C1C">
+        <ContentControl Content="{Binding SelectedViewModel}"/>
+
+        <DockPanel LastChildFill="True">
+            <materialDesign:ColorZone
+                Padding="5"
+                materialDesign:ElevationAssist.Elevation="Dp8"
+                DockPanel.Dock="Top"
+                Mode="PrimaryMid"
+                HorizontalAlignment="Stretch">
+
+                <StackPanel Orientation="Horizontal">
+                    <ToggleButton 
+                        x:Name="MainToggle"
+                        IsChecked="False"
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}"
+                        Foreground="{StaticResource MaterialDesignDarkBackground}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="10"/>
+
+                    <TextBlock 
+                        x:Name="txtTitle"
+                        Text="Personal Area"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="{StaticResource MaterialDesignDarkBackground}"
+                        FontSize="25"
+                        FontWeight="DemiBold"/>
+
+                </StackPanel>
+            </materialDesign:ColorZone>
+        </DockPanel>
+        
+        
+
+        <materialDesign:DrawerHost
+            x:Name="DrawerHost"
+            IsLeftDrawerOpen="{Binding ElementName=MainToggle, Path=IsChecked}"
+            LeftDrawerBackground="#FF3D3D3D">
+
+            <materialDesign:DrawerHost.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FF673AB7" ShadowDepth="10" Direction="0"/>
+            </materialDesign:DrawerHost.Effect>
+
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <StackPanel>
+                    <Button Content="News" Command="{Binding UpdateViewCommand}" CommandParameter="News"/>
+                    <Button Content="Home" Command="{Binding UpdateViewCommand}" CommandParameter="Home"/>
+                    <Button Content="Settings" Command="{Binding UpdateViewCommand}" CommandParameter="Settings"/>
+                </StackPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+        </materialDesign:DrawerHost>
+    </Grid>
+</Window>
